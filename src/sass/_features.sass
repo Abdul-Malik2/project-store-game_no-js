@@ -1,0 +1,27 @@
+.features
+    padding: 15rem 0
+    @include respond(phone)
+        padding: 5rem 0
+    background-color: $color-gray-light
+    //grid-row: можно не задавать т.к. в base уже она min-content
+    grid-column: centr-start/centr-end
+    // создаём grid сетку внутри этой секции, т.к. до этого она сама была только ячейкой, а сейчас она станет ещё и контейнером для своих дочерних ячеек
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)) // создаём минимум 3 колонки(т.к. ширина нашего контейнера позволяет свойству auto-fit повторить в нём колонки минимальной шириной  28rem максимум 3раза), второй ряд создастся автоматически так как у нас всего 6 элементов
+    gap: 3rem 4rem
+.feature
+    display: grid
+    grid: min-content min-content / min-content 1fr // grid-template-rows / grid-template-columns
+    gap: 1.5rem 2.5rem
+    &__icon
+        width: 4.5rem
+        height: 4.5rem
+        grid-row: 1/-1
+        transform: translateY(-1rem) // приподнимаем чуть-чуть выше чтобы было как на макете у дизайнера
+        
+    &__text
+        font-size: 1.6rem
+        font-weight: 400
+        line-height: 113%
+        color: $color-green-dark
+

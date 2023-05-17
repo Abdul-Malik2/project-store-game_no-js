@@ -1,0 +1,51 @@
+.header
+    background-color: $color-blue-dark
+    grid-column: full-start/col-end 6
+    @include respond(tab-port)
+        grid-column: full-start/full-end
+    padding: 5rem
+    background: url(../img/header_background.png) center / cover no-repeat
+    //внутри этой ячейки создаём собственную систему grid
+    display: grid
+    grid-template-rows: 1fr min-content minmax(10rem, min-content) 1fr
+
+
+    &__line-text
+        font-size: 1.6rem
+        font-weight: bold
+        color: $color-gray-dark
+        //создаём в этой ячейке свою систему grid, для того чтобы разделить на 3 элемента(----- О нас -----) 
+        display: grid
+        grid-template-columns: 1fr max-content 1fr
+        gap: 2rem
+        align-items: center
+
+        &::before, &::after
+            content: ""
+            height: .1rem
+            display: block // чтобы как все блочные элементы занимал всю длинну
+            background-color: $color-gray-dark
+    &__btn
+        align-self: start
+        justify-self: start
+
+
+
+    &__img
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        justify-items: center
+        gap: 2rem
+        &_item
+            height: 2.5rem
+            filter: brightness(70%) // png формат можно перекрасить только так
+
+.logo
+    display: block
+    margin-bottom: 8rem
+    &__img
+        display: block
+        margin: 0 auto
+        @include respond(tab-land)
+            padding-top: 8rem
+

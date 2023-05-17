@@ -1,0 +1,158 @@
+.sidebar
+    background-color: $color-green-dark
+    grid-row: 1/-1
+    grid-column: sidebar-start/sidebar-end
+    padding-top: 3.5rem
+    display: flex
+    justify-content: center
+    position: relative
+    z-index: 20
+    @include respond(tab-land)
+        position: fixed
+        width: 100%
+        height: 6rem
+        
+
+    //Г А М Б У Р Г Е Р без J S
+.navigation
+    &__toggle // 
+        display: none // чтобы убрать окошко с птичкой. т.к. оновсёравно будет активно при нажатие на label
+    
+    &__button // label - это белый фон нажатие на тоторый быдет == нажатию на гамбургер благодарая тому что (label for="navi-toggle") связано с (input id="navi-toggle")
+        //background: white
+        width: 5rem
+        height: 5rem
+        position: fixed
+        top: .5rem
+        left: 1.4rem
+        z-index: 20
+        //text-align: start // центрируем его дочерний элемент (гамбургер)
+        cursor: pointer //  чтобы при наведении стрелочка превращалась в руку
+    
+    &__background // фон элементов который будет выезжать со списком при нажатии на гамбургер
+        width: 4rem
+        height: 2.5rem
+        left:  1.4rem
+        top: 0rem
+        @include respond(tab-land)
+            width: 3.4rem
+        background: $color-green-dark //radial-gradient($color-brown-light, $color-brown-dark) // в отличии от линейного градиента, radial-gradient расходится по кругу
+        position: fixed
+        z-index: 10
+        //transform: scale(50) // увеличиваем фон, чтобы он был на весь экран
+        transition: .6s all cubic-bezier(0.68, -0.6, 0.32, 1.6) 
+    
+    &__nav // определяем стиль выведения списка навигационного меню
+        height: 100vh
+        width: 100% // нужен просто при настройке чтобы видеть что мы делаем, позже, когда мы закончим настраивать то мы ширину обнулим, а приактивации возобновим(т.е, здесь это свойство можно и удалить)
+        position: fixed
+        top: 0
+        left: 0
+        z-index: 15 // должен быть чуть выше чем у &__background, чтобы список лежал на фоне
+        transition: .5s all cubic-bezier(0.68, -0.6, 0.32, 1.6) // cubic-bezier свойство устанавливающее временные промежутки активности анимации (можно выбрать на сайте cubic-bezie.com)
+        opacity: 0 // чтобы пока не ьыла произведена команда &__toggle:checked ~ &__nav, т.е. пока не нажали на &__toggle:checked,  &__nav оставался прозрачным, а на &__toggle мы нажимаем через lebel
+        width: 0 // чтобы он не просто был прозрачным, но еще чтобы он не существовал
+    
+    &__list // чтобы все элементы списка находились в центре экрана
+        position: absolute // такой способ выравнивания дочернего элемента по центру родительского
+        top: 3% // такой способ выравнивания дочернего элемента по центру родительского
+        left: 5% // такой способ выравнивания дочернего элемента по центру родительского
+        //transform: translate(-50%, -50%) // такой способ выравнивания дочернего элемента по центру родительского
+        list-style: none
+        width: 100% // задаём ширину строкам 100%, чтобы они не преносились на следующую строку 
+    
+    &__item
+        text-align: start
+        &:not(last-child)
+            margin-bottom: 2rem
+            
+    &__link
+        &:link, &:visited
+            text-decoration: none
+            font-size: 2rem
+            letter-spacing: 0.5rem
+            text-transform: uppercase
+            color: white
+            background: linear-gradient(120deg,transparent 0%, transparent 50%, white 50%)
+            background-size: 220%
+            padding: .1rem 2rem
+            transition: 1s all
+            display: inline-block // чтобы работала анимация
+            -webkit-tap-highlight-color: transparent // чтобы при нажатии не меняла цвет
+        &:hover, &:active
+            background-position: 100%
+            color: $color-green-dark
+            transform: translateX(2rem)
+
+    &__toggle:checked ~ &__background // тильда позволяет выбирать любого из соседей
+        transform: scale(22) // при нажатии на &__toggle соседний &__background увеличивается в scale(раз) раз
+
+    &__toggle:checked ~ &__nav  // тильда позволяет выбирать любого из соседей
+        width: 100%
+        opacity: 1 // при нажатии на &__toggle соседний &__nav становится видимым
+
+    &__icon
+        position: relative // обозначаем чтобы можно было при позиционировании его дочерних псевдоэлементы использовать top
+        margin-top: 2.4rem // позиционируем гамбургер
+        &::before, // первая полоска гамбургера
+        &, // вторая полоска гамбургера т.е. сам реальный span
+        &::after // третья полоска гамбургера
+            width: 3rem
+            height: .2rem
+            background: $color-gray-light
+            display: inline-block // чтобы было легче анимировать
+        &::before,
+        &::after
+            content: "" // без этого псевдоэлемент не появится
+            position: absolute
+            left: 0
+            transition: .3s all
+
+        // чтобы псевдоэлементы не схлопывались, обращаемся к каждому по отдельности, но перед этим нужно было родительскому элементу этих псевдоклассов &__icon указать position: relative
+        &::before
+            top: -.8rem
+        &::after
+            top: .8rem
+
+    // делаем эффект разьезжания гамбургера при наведении на него курсора
+    &__button:hover &__icon::before // при наведении на button воздействуем на before
+        top: -1rem
+    &__button:hover &__icon::after // при наведении на button воздействуем на after
+        top: 1rem
+    
+    // делаем при нажатии переход из гамбургера в крестик
+    &__toggle:checked + &__button &__icon::after // при нажатии на &__toggle воздействие оказывается на дочерний элемент &__button, а именно на псевдоэлемент &__icon, а именно на after
+        transform: rotate(-135deg)
+        top: 0
+        transition: .7s all
+
+    &__toggle:checked + &__button &__icon // при нажатии на &__toggle воздействие оказывается на дочерний элемент &__button, а именно на &__icon
+        background: transparent // чтобы принажатии сам реальный элемент(span), т.е. средняя полоска исчезла
+
+    &__toggle:checked + &__button &__icon::before // при нажатии на &__toggle воздействие оказывается на дочерний элемент &__button,а именно на псевдоэлемент &__icon, а именно на befor
+        transform: rotate(135deg)
+        top: 0
+        transition: .7s all
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

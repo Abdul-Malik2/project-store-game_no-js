@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>Game store</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+
+            <!-- Г А М Б У Р Г Е Р -->
+            <div class="navigation">
+                <input type="checkbox" class="navigation__toggle" id="navi-toggle"> <!-- в отличие от radio при значении checkbox можно выбрать несколько значений -->
+                <label for="navi-toggle" class="navigation__button">
+                    <span class="navigation__icon"></span>
+                </label>
+                <div class="navigation__background"></div>
+                <nav class="navigation__nav">
+                    <ul class="navigation__list">
+                        <li class="navigation__item"><a href="##" class="navigation__link">о нас</a></li>
+                        <li class="navigation__item"><a href="##" class="navigation__link">скидки</a></li>
+                        <li class="navigation__item"><a href="##" class="navigation__link">лучшие туры</a></li>
+                        <li class="navigation__item"><a href="##" class="navigation__link">калькулятор цен</a></li>
+                        <li class="navigation__item"><a href="##" class="navigation__link">связаться с нами</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <header class="header">
+
+            <a href="#" class="logo">
+                <img class="logo__img" src="icons/logo.svg" alt="joystik">
+            </a>
+            <h4 class="title-4">ТВОЯ ИГРОВАЯ СТАНЦИЯ</h4>
+
+            <h1 class="title-1">Погрузись в мир современных игр</h1>
+
+            <button class="header__btn btn">ВЫБРАТЬ ПРИСТАВКУ</button>
+
+            <div class="header__line-text">О нас</div>
+
+            <div class="header__img">
+                <img src="icons/game-1.png" alt="geme-icon" class="header__img_item">
+                <img src="icons/game-2.png" alt="geme-icon" class="header__img_item">
+                <img src="icons/game-3.png" alt="geme-icon" class="header__img_item">
+                <img src="icons/game-4.png" alt="geme-icon" class="header__img_item">
+            </div>
+        </header>
+
+        <div class="gamers">
+            <h3 class="gamers__title-3 title-3_green-light">TOP 3 PLAYERS</h3>
+            <img src="img/gamer-1.png" alt="gamer-1" class="gamers__img">
+            <div class="gamers__text">
+                <div class="title-3 title-3_white">Артур Абакаров</div>
+                <p class="gamers__score">score 29334</p>
+            </div>
+            <img src="img/gamer-2.png" alt="gamer-2" class="gamers__img">
+            <div class="gamers__text">
+                <div class="title-3 title-3_white">Анжела Фролова</div>
+                <p class="gamers__score">score 2643</p>
+            </div>
+            <img src="img/gamer-3.png" alt="gamer-3" class="gamers__img">
+            <div class="gamers__text">
+                <div class="title-3 title-3_white">Алексей Стыцюк</div>
+                <p class="gamers__score">score 2184</p>
+            </div>
+            
+        </div>
+
+        <div class="features"> 
+            <!-- features{features-$}*6 -->
+            <div class="feature">
+                <svg class="feature__icon" > <!-- делаем такую структуру <svg><use><use/><svg/> чтобы можно было загрузить спрайты -->
+                    <use xlink:href="icons/symbol-defs.svg#icon-Vector-3"></use> <!-- после пути ставим знак # и ставим имя иконки (т.е. id из документа symbol-defs.svg) если не будет работать gulp надо его просто перезапустить чтобы призапуске он скомпилировал папку icons в папке dist -->
+                </svg> <!-- !!!спрайты с градиентом не работают / спрайты незапускаются без лайф-сервера, но их сайт грузит быстрее т.к. сколько нибыло бы иконок в проекте, на все иконки в проеке сервер делает только один запрос -->
+                <h3 class="title-3">Лучшая игровая платформа</h3>
+                <p class="feature__text">Как уже неоднократно упомянуто, базовые сценарии поведения пользователей освещают чрезвычайно интересные особенности картины.</p>
+            </div>
+            <div class="feature">
+                <svg class="feature__icon"> 
+                    <use xlink:href="icons/symbol-defs.svg#icon-Vector-2"></use>
+                </svg> 
+                <h3 class="title-3">Еженедельные турниры</h3>
+                <p class="feature__text">Как уже неоднократно упомянуто, базовые сценарии поведения пользователей освещают чрезвычайно интересные особенности картины.</p>
+            </div>
+            <div class="feature">
+                <svg class="feature__icon"> 
+                    <use xlink:href="icons/symbol-defs.svg#icon-Vector-1"></use>
+                </svg> 
+                <h3 class="title-3">Онлайн общение</h3>
+                <p class="feature__text">Как уже неоднократно упомянуто, базовые сценарии поведения пользователей освещают чрезвычайно интересные особенности картины.</p>
+            </div>
+            <div class="feature">
+                <svg class="feature__icon"> 
+                    <use xlink:href="icons/symbol-defs.svg#icon-earth"></use>
+                </svg> 
+                <h3 class="title-3">Сообщество во всём мире</h3>
+                <p class="feature__text">Как уже неоднократно упомянуто, базовые сценарии поведения пользователей освещают чрезвычайно интересные особенности картины.</p>
+            </div>
+            <div class="feature">
+                <svg class="feature__icon"> 
+                    <use xlink:href="icons/symbol-defs.svg#icon-bubbles2"></use>
+                </svg> 
+                <h3 class="title-3">Онлайн чат с поддержкой</h3>
+                <p class="feature__text">Как уже неоднократно упомянуто, базовые сценарии поведения пользователей освещают чрезвычайно интересные особенности картины.</p>
+            </div>
+            <div class="feature">
+                <svg class="feature__icon"> 
+                    <use xlink:href="icons/symbol-defs.svg#icon-Vector"></use>
+                </svg> 
+                <h3 class="title-3">Удобная система оплаты</h3>
+                <p class="feature__text">Как уже неоднократно упомянуто, базовые сценарии поведения пользователей освещают чрезвычайно интересные особенности картины.</p>
+            </div>
+        </div>
+
+        <div class="banner-img">
+            <img src="img/banner-1.png" alt="gamer" class="banner-img__img-1">
+            <img src="img/banner-2.png" alt="gamers" class="banner-img__img-2">
+        </div>
+
+        <div class="banner-text">
+            <h4 class="title-4">ВЕДИ КОМАНДУ К ПОБЕДЕ</h4>
+            <h2 class="title-2 margin-bottom-3rem">Лучшее место для онлайн соревнований</h2>
+            <p class="banner-text__text">Как уже неоднократно упомянуто, базовые сценарии поведения пользователей освещают чрезвычайно интересные особенности картины.</p>
+            <button class="btn">СОЗДАТЬ КОМАНДУ</button>
+        </div>
+
+        <div class="cards">
+
+            <!-- card-1 -->
+            <div class="card">
+                <img src="img/card-1.png" alt="img" class="card__img">
+                <h5 class="title-5 card__title">PC</h5>
+                <!-- .content.card__location>svg.card__svg>use -->
+                <div class="content card__location">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-location-1"></use>
+                    </svg>
+                    <p>EUR</p>
+                </div>
+
+                <div class="content card__man">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-users-1"></use>
+                    </svg>
+                    <p>20+ players</p>
+                </div>
+
+                <div class="content card__credit">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-Vector"></use>
+                    </svg>
+                    <p>от 100руб</p>
+                </div>
+
+                <div class="content card__monitor">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-display-1"></use>
+                    </svg>
+                    <p>4К монитор</p>
+                </div>
+                <button class="btn card__btn">ВЫБРАТЬ ПЛАТФОРМУ</button>
+            </div>
+
+            <!-- card-2 -->
+            <div class="card">
+                <img src="img/card-2.png" alt="img" class="card__img">
+                <h5 class="title-5 card__title">Play Station</h5>
+                <!-- .content.card__location>svg.card__svg>use -->
+                <div class="content card__location">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-location-1"></use>
+                    </svg>
+                    <p>EUR</p>
+                </div>
+
+                <div class="content card__man">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-users-1"></use>
+                    </svg>
+                    <p>20+ players</p>
+                </div>
+
+                <div class="content card__credit">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-Vector"></use>
+                    </svg>
+                    <p>от 100руб</p>
+                </div>
+
+                <div class="content card__monitor">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-display-1"></use>
+                    </svg>
+                    <p>4К монитор</p>
+                </div>
+                <button class="btn card__btn">ВЫБРАТЬ ПЛАТФОРМУ</button>
+            </div>
+
+            <!-- card-3 -->
+            <div class="card">
+                <img src="img/card-3.png" alt="img" class="card__img">
+                <h5 class="title-5 card__title">X-BOX</h5>
+                <!-- .content.card__location>svg.card__svg>use -->
+                <div class="content card__location">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-location-1"></use>
+                    </svg>
+                    <p>EUR</p>
+                </div>
+
+                <div class="content card__man">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-users-1"></use>
+                    </svg>
+                    <p>20+ players</p>
+                </div>
+
+                <div class="content card__credit">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-Vector"></use>
+                    </svg>
+                    <p>от 100руб</p>
+                </div>
+
+                <div class="content card__monitor">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-display-1"></use>
+                    </svg>
+                    <p>4К монитор</p>
+                </div>
+                <button class="btn card__btn">ВЫБРАТЬ ПЛАТФОРМУ</button>
+            </div>
+
+            <!-- card-4 -->
+            <div class="card">
+                <img src="img/card-4.png" alt="img" class="card__img">
+                <h5 class="title-5 card__title">Nintendo</h5>
+                <!-- .content.card__location>svg.card__svg>use -->
+                <div class="content card__location">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-location-1"></use>
+                    </svg>
+                    <p>EUR</p>
+                </div>
+
+                <div class="content card__man">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-users-1"></use>
+                    </svg>
+                    <p>20+ players</p>
+                </div>
+
+                <div class="content card__credit">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-Vector"></use>
+                    </svg>
+                    <p>от 100руб</p>
+                </div>
+
+                <div class="content card__monitor">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-display-1"></use>
+                    </svg>
+                    <p>4К монитор</p>
+                </div>
+                <button class="btn card__btn">ВЫБРАТЬ ПЛАТФОРМУ</button>
+            </div>
+
+            <!-- card-5 -->
+            <div class="card">
+                <img src="img/card-5.png" alt="img" class="card__img">
+                <h5 class="title-5 card__title">Steam deck</h5>
+                <!-- .content.card__location>svg.card__svg>use -->
+                <div class="content card__location">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-location-1"></use>
+                    </svg>
+                    <p>EUR</p>
+                </div>
+
+                <div class="content card__man">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-users-1"></use>
+                    </svg>
+                    <p>20+ players</p>
+                </div>
+
+                <div class="content card__credit">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-Vector"></use>
+                    </svg>
+                    <p>от 100руб</p>
+                </div>
+
+                <div class="content card__monitor">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-display-1"></use>
+                    </svg>
+                    <p>4К монитор</p>
+                </div>
+                <button class="btn card__btn">ВЫБРАТЬ ПЛАТФОРМУ</button>
+            </div>
+
+            <!-- card-6 -->
+            <div class="card">
+                <img src="img/card-6.png" alt="img" class="card__img">
+                <h5 class="title-5 card__title">Mobile</h5>
+                <!-- .content.card__location>svg.card__svg>use -->
+                <div class="content card__location">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-location-1"></use>
+                    </svg>
+                    <p>EUR</p>
+                </div>
+
+                <div class="content card__man">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-users-1"></use>
+                    </svg>
+                    <p>20+ players</p>
+                </div>
+
+                <div class="content card__credit">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-Vector"></use>
+                    </svg>
+                    <p>от 100руб</p>
+                </div>
+
+                <div class="content card__monitor">
+                    <svg class="card__svg">
+                        <use xlink:href="icons/symbol-defs-1.svg#icon-display-1"></use>
+                    </svg>
+                    <p>4К монитор</p>
+                </div>
+                <button class="btn card__btn">ВЫБРАТЬ ПЛАТФОРМУ</button>
+            </div>
+        </div>
+        
+
+
+        <div class="gallery">
+            <!-- (.gal-$>img.gal[src="img/gal-$.png"][alt="gal-$"])*3   атрибуты записываются полностью в []-->
+            <div class="gal-1">
+                <img src="img/gal-1.png" alt="gal-1" class="gal">
+            </div>
+
+            <div class="gal-2">
+                <img src="img/gal-2.png" alt="gal-2" class="gal">
+            </div>
+
+            <div class="gal-3">
+                <img src="img/gal-3.png" alt="gal-3" class="gal">
+            </div>
+
+            <div class="gal-4">
+                <img src="img/gal-4.png" alt="gal-4" class="gal">
+            </div>
+
+            <div class="gal-5">
+                <img src="img/gal-5.png" alt="gal-5" class="gal">
+            </div>
+
+            <div class="gal-6">
+                <img src="img/gal-6.png" alt="gal-6" class="gal">
+            </div>
+
+            <div class="gal-7">
+                <img src="img/gal-7.png" alt="gal-7" class="gal">
+            </div>
+
+            <div class="gal-8">
+                <img src="img/gal-8.png" alt="gal-8" class="gal">
+            </div>
+
+            <div class="gal-9">
+                <img src="img/gal-9.png" alt="gal-9" class="gal">
+            </div>
+
+            <div class="gal-10">
+                <img src="img/gal-10.png" alt="gal-10" class="gal">
+            </div>
+
+            <div class="gal-11">
+                <img src="img/gal-11.png" alt="gal-11" class="gal">
+            </div>
+
+            <div class="gal-12">
+                <img src="img/gal-12.png" alt="gal-12" class="gal">
+            </div>
+
+            <div class="gal-13">
+                <img src="img/gal-13.png" alt="gal-13" class="gal">
+            </div>
+
+            <div class="gal-14">
+                <img src="img/gal-14.png" alt="gal-14" class="gal">
+            </div>
+
+        </div>
+
+
+        <footer class="footer">
+
+            <a href="#" class="logo">
+                <img class="logo__img" src="icons/logo.svg" alt="joystik">
+            </a>
+            <nav class="nav">
+
+                <ul class="nav__list">
+
+                    <li class="nav__item"><a href="#" class="nav__link">АРЕНДА КОНСОЛЕЙ</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">КОМСОРЕВНОВАНИЯАНДНЫЕ</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">АРЕНДА СЕРВЕРА</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">СООБЩЕСТВО</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">РАБОТАЙ И ИГРАЙ</a></li>
+
+                </ul>
+
+            </nav>
+
+        </footer>
+    </div>
+    
+<script src="js/script.js"></script>
+</body>
+</html>

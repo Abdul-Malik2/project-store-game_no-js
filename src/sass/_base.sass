@@ -1,0 +1,61 @@
+$color-green-dark: #425844
+$color-green-light: #61A568
+
+$color-blue-dark: #101D2C
+
+$color-gray-dark: #AAAAAA
+$color-gray-light: #F5F5F5
+    
+
+// А Д А П Т И В \\
+
+@mixin respond($breakpoint)
+    
+    @if $breakpoint == tab-land   // если в аргументе указанно свойство max-width, то свойсва адаптации (@include) мы начинаем прописывать сверху вниз, т.е. от самого большего экрана в описании которому было ипользованно свойство max-width, к самому маленькому. А если в описании аргумента было применено свойство min-width т.е. свойсва адаптации (@include) мы начинаем прописывать снизу вверх, т.е. от самого маленького экрана к большему.  Если это правило будет проигнорированно, то свйства адаптации не сработают
+        @media only screen and (max-width: 1170px)
+            @content // @content-бронирует место, в котором будут подставляться все дополнительные данные которые будут прописываться во время включения миксина
+    
+    @if $breakpoint == tab-port
+        @media only screen and (max-width: 830px)
+            @content
+
+    @if $breakpoint == phone
+        @media only screen and (max-width: 420px)
+            @content
+
+    @if $breakpoint == big-screen  // это самый большёй экран, но указан в самом конце, потомучто в описании его аргумента было применено свойство min-width
+        @media only screen and (min-width: 1800px)
+            @content
+    
+*, ::after, ::before
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+html
+    font-size: 63.5% // т.е. 10рх == 1rem
+    @include respond(tab-land)
+        font-size: 50%
+    @include respond(phone)
+        font-size: 40%
+
+body
+    font-family: Montserrat, sans-serif
+    font-size: 1.6rem
+    font-weight: 400
+    color: $color-gray-light
+    background-color: $color-gray-light
+
+.container
+    display: grid
+    grid-template-rows: 80vh min-content 40vw repeat(3,min-content)  // 80vh-header&gamers 40vh-banner-img&banner-text. для sidebar стороку не делали.
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [centr-start] repeat(8,[col-start] minmax(min-content, 14rem) [col-end]) [centr-end] minmax(6rem, 1fr) [full-end] // 8rem-для sidebar, minmax(6rem, 1fr)-для ушей(!!!НЕвсе секции будут оставлять уши, уши будут только у features и cards), repeat-для общей разметки (расположения и центрирования элементов и еккций)
+    
+    @include respond(tab-land)
+        grid-template-rows: 80vh min-content 40vw repeat(3,min-content)  // 80vh-header&gamers 40vh-banner-img&banner-text. для sidebar стороку не делали.
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [centr-start] repeat(8,[col-start] minmax(min-content, 14rem) [col-end]) [centr-end] minmax(6rem, 1fr) [full-end] // 8rem-для sidebar, minmax(6rem, 1fr)-для ушей(!!!НЕвсе секции будут оставлять уши, уши будут только у features и cards), repeat-для общей разметки (расположения и центрирования элементов и еккций)
+    
+    @include respond(tab-port)
+        grid-template-rows: 100vh min-content min-content min-content 50vw repeat(3,min-content)  // 80vh-header&gamers 40vh-banner-img&banner-text. для sidebar стороку не делали.
+    
+    
+

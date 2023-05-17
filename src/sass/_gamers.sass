@@ -1,0 +1,30 @@
+.gamers
+    background-color: $color-blue-dark
+    //grid-row: можно не задавать т.к. в base уже она min-content
+    grid-column: col-start 7/full-end
+    @include respond(tab-port)
+        grid-column: full-start/full-end
+        padding: 3rem 0
+    
+
+    //в этой ячейке создаём свою grid систему
+    display: grid
+    grid-template-columns: min-content max-content
+    gap: 4rem 2rem
+    align-content: center
+    justify-content: center
+
+    &__title-3
+        grid-column: 1/-1
+        justify-self: center
+
+    &__img
+        width: 7rem
+    &__text
+        font-size: 1.6rem
+        color: $color-gray-dark
+        font-weight: 300
+    &__score
+        font-size: 1.6rem
+        color: $color-gray-dark
+        font-weight: 300

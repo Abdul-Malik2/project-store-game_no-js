@@ -1,0 +1,31 @@
+.footer
+    padding: 8rem 3rem
+    border-top: solid .3rem $color-gray-light
+    background-color: $color-blue-dark
+    //grid-row: можно не задавать т.к. в base уже она min-content
+    grid-column: full-start / full-end
+    display: grid
+
+    
+.nav
+    &__list
+        list-style-type: none
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr))
+        justify-items: center
+        gap: 3rem
+                    
+        
+    &__link
+        &:link, &:visited
+            font-size: 1.6rem
+            font-weight: 300
+            text-decoration: none
+            text-transform: uppercase
+            color: $color-gray-light
+            text-align: center
+            display: inline-block
+            transition: .3s all
+        &:hover, &:active
+            color: $color-green-light
+            transform: translateY(-.3rem)
